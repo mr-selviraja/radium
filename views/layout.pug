@@ -1,0 +1,51 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        meta(http-equiv='X-UA-Compatible' content='IE=edge')
+        meta(name='viewport' content='width=device-width, initial-scale=1.0')
+        title Radium
+
+        //- Favicon
+        link(rel='icon' type='image/x-icon' href='assets/favicon.ico')
+
+        //- Google fonts CDN
+        link(rel='preconnect' href='https://fonts.googleapis.com')
+        link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+        link(href='https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;700&family=Roboto:wght@100;400;700&display=swap' rel='stylesheet')
+
+
+        //- Icons CDN
+        script(src='https://kit.fontawesome.com/33fd432c87.js' crossorigin='anonymous') 
+
+        //- Custom stylesheet
+        link(rel="stylesheet" href="css/styles.css")
+    
+    body
+        //- a dev-dependency for hard-reloading as nodemon isn't reloading pug
+        script(src="/reload/reload.js")
+
+        header.header 
+            a(href="")
+                img(src="/assets/app-logo.svg", alt="app logo")
+            nav.header__nav 
+                ul 
+                    li 
+                        a.header__nav--link(href="") 
+                            span.nav-link-text Write 
+                            <i class="fa-solid fa-feather nav-link-icon"></i>
+                    li
+                        a.header__nav--link(href="") 
+                            span.nav-link-text About 
+                        <i class="fa-solid fa-question nav-link-icon"></i>
+                    li
+                        a.header__nav--link(href="") 
+                            span.nav-link-text Logout 
+                            <i class="fa-solid fa-right-from-bracket nav-link-icon"></i>
+
+        //- THIS CAN ALSO BE DONE USING INCLUDES
+        block content
+
+        footer.footer Made with <i class="fa-solid fa-heart footer-heart"></i> by Mr.Selviraja
+
+        script(src="js/script.js")
