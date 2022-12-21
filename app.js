@@ -3,6 +3,7 @@
 const express = require("express");
 const path = require("path");
 const pug = require("pug");
+const bodyParser = require("body-parser");
 const reload = require("reload");
 
 // starting contents of the webpage UI
@@ -30,17 +31,33 @@ const app = express();
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
 
+app.use(bodyParser.urlencoded({ extended: true }));
 // static files serving directory
 app.use(express.static("public"));
 
+const posts = [];
+
 // root route
 app.get("/", (req, res) => {
-  res.render("index", { content: homeStartingContent });
+  res.render("index", { content: homeStartingContent, posts: posts });
+  console.log(posts);
 });
 
-// write route
+// GET: write route
 app.get("/write", (req, res) => {
   res.render("write", { content: writeStartingContent });
+});
+
+// POST: write route
+app.post("/write", (req, res) => {
+  const newPost = {
+    title: req.body.postTitle,
+    text: req.body.postDescription,
+  };
+
+  posts.push(newPost);
+
+  res.redirect("/");
 });
 
 // about route
