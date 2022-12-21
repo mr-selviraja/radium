@@ -2,7 +2,18 @@ extends layout
 block content 
     main.main
         h4.home-title #{content.title}
+        //- to add inline js code use "- js-code" and example: "- console.log(posts)"
         section.main__body
+            each post in posts
+                article.article 
+                    p.article__author Yugur Yagmur · 29th Sept, 2022.
+                    a.article__description(href="")
+                        h3.article__description--title=post.title
+                        p.article__description--text=post.text
+                    div.article__tags
+                        span sports 
+                        span entertainments
+                
             article.article 
                 p.article__author Yugur Yagmur · 29th Sept, 2022.
                 a.article__description(href="")

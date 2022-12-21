@@ -40,7 +40,6 @@ const posts = [];
 // root route
 app.get("/", (req, res) => {
   res.render("index", { content: homeStartingContent, posts: posts });
-  console.log(posts);
 });
 
 // GET: write route
