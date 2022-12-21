@@ -1,0 +1,10 @@
+extends layout 
+block content 
+    section.write
+        h4 #{content.title}
+        label(for="post-title") 
+            input(type="text" placeholder="Title of the Post" id="post-title" name="postTitle")
+        label(for="post-description")
+            textarea(rows='4' cols='50' id="post-description" name="postDescription" placeholder="Describe your Post")
+
+        button.btn.btn-primary.btn-post Post
