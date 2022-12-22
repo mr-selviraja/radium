@@ -37,9 +37,22 @@ app.use(express.static("public"));
 
 const posts = [];
 
-// root route
+// GET: root route
 app.get("/", (req, res) => {
   res.render("index", { content: homeStartingContent, posts: posts });
+});
+
+// GET: posts route
+app.get("/posts/:postId", (req, res) => {
+  const requestedTitle = req.params.postId;
+
+  posts.forEach((post) => {
+    const storedTitle = post.title;
+
+    if (storedTitle.toLowerCase() === requestedTitle.toLowerCase()) {
+      console.log("Match Found!");
+    }
+  });
 });
 
 // GET: write route
@@ -59,12 +72,12 @@ app.post("/write", (req, res) => {
   res.redirect("/");
 });
 
-// about route
+// GET: about route
 app.get("/about", (req, res) => {
   res.render("about", { content: aboutStartingContent });
 });
 
-// logout route
+// GET: logout route
 app.get("/logout", (req, res) => {
   res.render("logout");
 });
