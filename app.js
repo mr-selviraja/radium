@@ -4,6 +4,7 @@ const express = require("express");
 const path = require("path");
 const pug = require("pug");
 const bodyParser = require("body-parser");
+const _ = require("lodash");
 const reload = require("reload");
 
 // starting contents of the webpage UI
@@ -33,7 +34,7 @@ app.set("view engine", "pug");
 
 app.use(bodyParser.urlencoded({ extended: true }));
 // static files serving directory
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "./public")));
 
 const posts = [];
 
@@ -44,13 +45,13 @@ app.get("/", (req, res) => {
 
 // GET: posts route
 app.get("/posts/:postId", (req, res) => {
-  const requestedTitle = req.params.postId;
+  const requestedTitle = _.lowerCase(req.params.postId);
 
   posts.forEach((post) => {
-    const storedTitle = post.title;
+    const storedTitle = _.lowerCase(post.title);
 
-    if (storedTitle.toLowerCase() === requestedTitle.toLowerCase()) {
-      console.log("Match Found!");
+    if (storedTitle === requestedTitle) {
+      res.render("post", { title: post.title, content: post.text });
     }
   });
 });

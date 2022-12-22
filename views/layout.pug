@@ -7,7 +7,7 @@ html(lang='en')
         title Radium
 
         //- Favicon
-        link(rel='icon' type='image/x-icon' href='assets/favicon.ico')
+        link(rel='icon' type='image/x-icon' href='/assets/favicon.ico')
 
         //- Google fonts CDN
         link(rel='preconnect' href='https://fonts.googleapis.com')
@@ -17,9 +17,9 @@ html(lang='en')
 
         //- Icons CDN
         script(src='https://kit.fontawesome.com/33fd432c87.js' crossorigin='anonymous') 
-
+    
         //- Custom stylesheet
-        link(rel="stylesheet" href="css/styles.css")
+        link(rel="stylesheet" href="/css/styles.css")
     
     body
         //- a dev-dependency for hard-reloading as nodemon isn't reloading pug
@@ -37,15 +37,14 @@ html(lang='en')
                     li
                         a.header__nav--link(href="/about") 
                             span.nav-link-text About 
-                        <i class="fa-solid fa-question nav-link-icon"></i>
+                            <i class="fa-solid fa-question nav-link-icon"></i>
                     li
                         a.header__nav--link(href="/logout") 
                             span.nav-link-text Logout 
                             <i class="fa-solid fa-right-from-bracket nav-link-icon"></i>
 
-        //- THIS CAN ALSO BE DONE USING INCLUDES
         block content
 
         footer.footer Made with <i class="fa-solid fa-heart footer-heart"></i> by Mr.Selviraja
 
-        script(src="js/script.js")
+        script(src="/js/script.js")
