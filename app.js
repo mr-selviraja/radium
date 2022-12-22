@@ -51,7 +51,10 @@ app.get("/posts/:postId", (req, res) => {
     const storedTitle = _.lowerCase(post.title);
 
     if (storedTitle === requestedTitle) {
-      res.render("post", { title: post.title, content: post.text });
+      res.render("post", {
+        title: post.title,
+        content: post.text,
+      });
     }
   });
 });

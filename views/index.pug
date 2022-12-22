@@ -7,9 +7,9 @@ block content
             each post in posts
                 article.article 
                     p.article__author Yugur Yagmur · 29th Sept, 2022.
-                    a.article__description(href="")
+                    a.article__description(href=`/posts/${post.title}`)
                         h3.article__description--title=post.title
-                        p.article__description--text=post.text
+                        p.article__description--text=post.text.substring(0,99)+"..."
                     div.article__tags
                         span sports 
                         span entertainments
